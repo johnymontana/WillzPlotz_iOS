@@ -1,18 +1,18 @@
 //
-//  PlotViewController.m
+//  SimplePlotViewController.m
 //  WillzPlotz_iOS
 //
-//  Created by lyonwj on 2/20/13.
+//  Created by lyonwj on 2/21/13.
 //  Copyright (c) 2013 William Lyon. All rights reserved.
 //
 
-#import "PlotViewController.h"
+#import "SimplePlotViewController.h"
 
-@interface PlotViewController ()
+@interface SimplePlotViewController ()
 
 @end
 
-@implementation PlotViewController
+@implementation SimplePlotViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,11 +27,8 @@
 {
     [super viewDidLoad];
     _scroller.contentSize = CGSizeMake(kDefaultGraphWidth, kGraphHeight);
-    [self.graph_view setUpWithData:self.plotData];
-    self.graph_view.symbol = self.symbol;
-    
-   // [self.graph_view getOwnData];
-    
+    [self.graph_view setUpWithData:@[@0.5, @0.5, @0.5]];
+     
 	// Do any additional setup after loading the view.
 }
 
@@ -41,8 +38,4 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setUpWithData:(NSArray*) plotData
-{
-    //[self.graph_view setUpWithData:plotData];
-}
 @end

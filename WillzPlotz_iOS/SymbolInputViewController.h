@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SymbolInputViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UITextField *symbolTextField;
 
 @end

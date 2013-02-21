@@ -12,6 +12,10 @@
 		C5C4C0CE16D65F37004A0CBB /* 104-index-cards.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C4C0CC16D65F37004A0CBB /* 104-index-cards.png */; };
 		C5C4C0CF16D65F37004A0CBB /* 104-index-cards@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C4C0CD16D65F37004A0CBB /* 104-index-cards@2x.png */; };
 		C5C4C0D216D65FDA004A0CBB /* QuotezDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C4C0D116D65FDA004A0CBB /* QuotezDownload.m */; };
+		C5C4C0D516D66AF2004A0CBB /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C4C0D416D66AF2004A0CBB /* GraphView.m */; };
+		C5C4C0D816D6752F004A0CBB /* SimplePlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C4C0D716D6752F004A0CBB /* SimplePlotViewController.m */; };
+		C5C4C0DB16D6BA67004A0CBB /* IndexPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C4C0DA16D6BA67004A0CBB /* IndexPlotViewController.m */; };
+		C5C4C0DE16D6BB83004A0CBB /* GraphCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C4C0DD16D6BB83004A0CBB /* GraphCollectionViewCell.m */; };
 		C5ED98CA16D471DB00EC6669 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED98C916D471DB00EC6669 /* UIKit.framework */; };
 		C5ED98CC16D471DB00EC6669 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED98CB16D471DB00EC6669 /* Foundation.framework */; };
 		C5ED98CE16D471DB00EC6669 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED98CD16D471DB00EC6669 /* CoreGraphics.framework */; };
@@ -48,6 +52,14 @@
 		C5C4C0CD16D65F37004A0CBB /* 104-index-cards@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "104-index-cards@2x.png"; sourceTree = "<group>"; };
 		C5C4C0D016D65FDA004A0CBB /* QuotezDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotezDownload.h; sourceTree = "<group>"; };
 		C5C4C0D116D65FDA004A0CBB /* QuotezDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotezDownload.m; sourceTree = "<group>"; };
+		C5C4C0D316D66AF2004A0CBB /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		C5C4C0D416D66AF2004A0CBB /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		C5C4C0D616D6752F004A0CBB /* SimplePlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePlotViewController.h; sourceTree = "<group>"; };
+		C5C4C0D716D6752F004A0CBB /* SimplePlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePlotViewController.m; sourceTree = "<group>"; };
+		C5C4C0D916D6BA67004A0CBB /* IndexPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexPlotViewController.h; sourceTree = "<group>"; };
+		C5C4C0DA16D6BA67004A0CBB /* IndexPlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexPlotViewController.m; sourceTree = "<group>"; };
+		C5C4C0DC16D6BB82004A0CBB /* GraphCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphCollectionViewCell.h; sourceTree = "<group>"; };
+		C5C4C0DD16D6BB83004A0CBB /* GraphCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphCollectionViewCell.m; sourceTree = "<group>"; };
 		C5ED98C616D471DB00EC6669 /* WillzPlotz_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WillzPlotz_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5ED98C916D471DB00EC6669 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C5ED98CB16D471DB00EC6669 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,16 +143,22 @@
 		C5ED98CF16D471DB00EC6669 /* WillzPlotz_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C5C4C0D316D66AF2004A0CBB /* GraphView.h */,
+				C5C4C0D416D66AF2004A0CBB /* GraphView.m */,
 				C5C4C0D016D65FDA004A0CBB /* QuotezDownload.h */,
 				C5C4C0D116D65FDA004A0CBB /* QuotezDownload.m */,
-				C5ED98D816D471DB00EC6669 /* AppDelegate.h */,
-				C5ED98D916D471DB00EC6669 /* AppDelegate.m */,
 				C5ED98E116D471DB00EC6669 /* MainStoryboard.storyboard */,
+				C5C4C0DC16D6BB82004A0CBB /* GraphCollectionViewCell.h */,
+				C5C4C0DD16D6BB83004A0CBB /* GraphCollectionViewCell.m */,
+				C5C4C0D916D6BA67004A0CBB /* IndexPlotViewController.h */,
+				C5C4C0DA16D6BA67004A0CBB /* IndexPlotViewController.m */,
 				C5ED98E416D471DB00EC6669 /* SymbolInputViewController.h */,
 				C5ED98E516D471DB00EC6669 /* SymbolInputViewController.m */,
 				C5ED990416D4F7E800EC6669 /* PlotViewController.h */,
 				C5ED990516D4F7E800EC6669 /* PlotViewController.m */,
 				C5ED98D016D471DB00EC6669 /* Supporting Files */,
+				C5C4C0D616D6752F004A0CBB /* SimplePlotViewController.h */,
+				C5C4C0D716D6752F004A0CBB /* SimplePlotViewController.m */,
 			);
 			path = WillzPlotz_iOS;
 			sourceTree = "<group>";
@@ -148,6 +166,8 @@
 		C5ED98D016D471DB00EC6669 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C5ED98D816D471DB00EC6669 /* AppDelegate.h */,
+				C5ED98D916D471DB00EC6669 /* AppDelegate.m */,
 				C5ED98D116D471DB00EC6669 /* WillzPlotz_iOS-Info.plist */,
 				C5ED98D216D471DB00EC6669 /* InfoPlist.strings */,
 				C5ED98D516D471DB00EC6669 /* main.m */,
@@ -301,6 +321,10 @@
 				C5ED98E616D471DB00EC6669 /* SymbolInputViewController.m in Sources */,
 				C5ED990616D4F7E800EC6669 /* PlotViewController.m in Sources */,
 				C5C4C0D216D65FDA004A0CBB /* QuotezDownload.m in Sources */,
+				C5C4C0D516D66AF2004A0CBB /* GraphView.m in Sources */,
+				C5C4C0D816D6752F004A0CBB /* SimplePlotViewController.m in Sources */,
+				C5C4C0DB16D6BA67004A0CBB /* IndexPlotViewController.m in Sources */,
+				C5C4C0DE16D6BB83004A0CBB /* GraphCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

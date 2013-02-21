@@ -7,6 +7,7 @@
 //
 
 #import "SymbolInputViewController.h"
+#import "PlotViewController.h"
 #import "QuotezDownload.h"
 
 @interface SymbolInputViewController ()
@@ -26,6 +27,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PlotViewController* plvc = [segue destinationViewController];
+    
+   // [plvc setUpWithData:[QuotezDownload getQuotes:@"AAPL"]];
+    plvc.plotData = [QuotezDownload getQuotes:self.symbolTextField.text];
+    plvc.symbol = self.symbolTextField.text;
+                     
 }
 
 @end

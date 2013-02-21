@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GraphView.h"
 
 @interface PlotViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet GraphView *graph_view;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scroller;
+@property (strong, nonatomic) NSArray* plotData;
+@property (strong, nonatomic) NSString* symbol;
+
+
+-(void)setUpWithData:(NSArray*)plotData;
+
+
 
 @end
