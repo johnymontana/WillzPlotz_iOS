@@ -1,22 +1,24 @@
 //
-//  ViewController.m
+//  SymbolInputViewController.m
 //  WillzPlotz_iOS
 //
 //  Created by lyonwj on 2/19/13.
 //  Copyright (c) 2013 William Lyon. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SymbolInputViewController.h"
+#import "QuotezDownload.h"
 
-@interface ViewController ()
+@interface SymbolInputViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SymbolInputViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [QuotezDownload getQuotes:@"AAPL"];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

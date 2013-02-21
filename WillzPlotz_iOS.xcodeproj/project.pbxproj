@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5C4C0CA16D65E0C004A0CBB /* 16-line-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C4C0C816D65E0C004A0CBB /* 16-line-chart.png */; };
+		C5C4C0CB16D65E0C004A0CBB /* 16-line-chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C4C0C916D65E0C004A0CBB /* 16-line-chart@2x.png */; };
+		C5C4C0CE16D65F37004A0CBB /* 104-index-cards.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C4C0CC16D65F37004A0CBB /* 104-index-cards.png */; };
+		C5C4C0CF16D65F37004A0CBB /* 104-index-cards@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C4C0CD16D65F37004A0CBB /* 104-index-cards@2x.png */; };
+		C5C4C0D216D65FDA004A0CBB /* QuotezDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C4C0D116D65FDA004A0CBB /* QuotezDownload.m */; };
 		C5ED98CA16D471DB00EC6669 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED98C916D471DB00EC6669 /* UIKit.framework */; };
 		C5ED98CC16D471DB00EC6669 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED98CB16D471DB00EC6669 /* Foundation.framework */; };
 		C5ED98CE16D471DB00EC6669 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED98CD16D471DB00EC6669 /* CoreGraphics.framework */; };
@@ -17,12 +22,13 @@
 		C5ED98DE16D471DB00EC6669 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5ED98DD16D471DB00EC6669 /* Default@2x.png */; };
 		C5ED98E016D471DB00EC6669 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5ED98DF16D471DB00EC6669 /* Default-568h@2x.png */; };
 		C5ED98E316D471DB00EC6669 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5ED98E116D471DB00EC6669 /* MainStoryboard.storyboard */; };
-		C5ED98E616D471DB00EC6669 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED98E516D471DB00EC6669 /* ViewController.m */; };
+		C5ED98E616D471DB00EC6669 /* SymbolInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED98E516D471DB00EC6669 /* SymbolInputViewController.m */; };
 		C5ED98EE16D471DC00EC6669 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED98ED16D471DC00EC6669 /* SenTestingKit.framework */; };
 		C5ED98EF16D471DC00EC6669 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED98C916D471DB00EC6669 /* UIKit.framework */; };
 		C5ED98F016D471DC00EC6669 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED98CB16D471DB00EC6669 /* Foundation.framework */; };
 		C5ED98F816D471DC00EC6669 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5ED98F616D471DC00EC6669 /* InfoPlist.strings */; };
 		C5ED98FB16D471DC00EC6669 /* WillzPlotz_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED98FA16D471DC00EC6669 /* WillzPlotz_iOSTests.m */; };
+		C5ED990616D4F7E800EC6669 /* PlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED990516D4F7E800EC6669 /* PlotViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C5C4C0C816D65E0C004A0CBB /* 16-line-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16-line-chart.png"; sourceTree = "<group>"; };
+		C5C4C0C916D65E0C004A0CBB /* 16-line-chart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16-line-chart@2x.png"; sourceTree = "<group>"; };
+		C5C4C0CC16D65F37004A0CBB /* 104-index-cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "104-index-cards.png"; sourceTree = "<group>"; };
+		C5C4C0CD16D65F37004A0CBB /* 104-index-cards@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "104-index-cards@2x.png"; sourceTree = "<group>"; };
+		C5C4C0D016D65FDA004A0CBB /* QuotezDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotezDownload.h; sourceTree = "<group>"; };
+		C5C4C0D116D65FDA004A0CBB /* QuotezDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotezDownload.m; sourceTree = "<group>"; };
 		C5ED98C616D471DB00EC6669 /* WillzPlotz_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WillzPlotz_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5ED98C916D471DB00EC6669 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C5ED98CB16D471DB00EC6669 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,14 +62,16 @@
 		C5ED98DD16D471DB00EC6669 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C5ED98DF16D471DB00EC6669 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C5ED98E216D471DB00EC6669 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C5ED98E416D471DB00EC6669 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C5ED98E516D471DB00EC6669 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C5ED98E416D471DB00EC6669 /* SymbolInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolInputViewController.h; sourceTree = "<group>"; };
+		C5ED98E516D471DB00EC6669 /* SymbolInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolInputViewController.m; sourceTree = "<group>"; };
 		C5ED98EC16D471DC00EC6669 /* WillzPlotz_iOSTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WillzPlotz_iOSTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5ED98ED16D471DC00EC6669 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C5ED98F516D471DC00EC6669 /* WillzPlotz_iOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WillzPlotz_iOSTests-Info.plist"; sourceTree = "<group>"; };
 		C5ED98F716D471DC00EC6669 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C5ED98F916D471DC00EC6669 /* WillzPlotz_iOSTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WillzPlotz_iOSTests.h; sourceTree = "<group>"; };
 		C5ED98FA16D471DC00EC6669 /* WillzPlotz_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WillzPlotz_iOSTests.m; sourceTree = "<group>"; };
+		C5ED990416D4F7E800EC6669 /* PlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotViewController.h; sourceTree = "<group>"; };
+		C5ED990516D4F7E800EC6669 /* PlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +131,15 @@
 		C5ED98CF16D471DB00EC6669 /* WillzPlotz_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C5C4C0D016D65FDA004A0CBB /* QuotezDownload.h */,
+				C5C4C0D116D65FDA004A0CBB /* QuotezDownload.m */,
 				C5ED98D816D471DB00EC6669 /* AppDelegate.h */,
 				C5ED98D916D471DB00EC6669 /* AppDelegate.m */,
 				C5ED98E116D471DB00EC6669 /* MainStoryboard.storyboard */,
-				C5ED98E416D471DB00EC6669 /* ViewController.h */,
-				C5ED98E516D471DB00EC6669 /* ViewController.m */,
+				C5ED98E416D471DB00EC6669 /* SymbolInputViewController.h */,
+				C5ED98E516D471DB00EC6669 /* SymbolInputViewController.m */,
+				C5ED990416D4F7E800EC6669 /* PlotViewController.h */,
+				C5ED990516D4F7E800EC6669 /* PlotViewController.m */,
 				C5ED98D016D471DB00EC6669 /* Supporting Files */,
 			);
 			path = WillzPlotz_iOS;
@@ -133,6 +151,10 @@
 				C5ED98D116D471DB00EC6669 /* WillzPlotz_iOS-Info.plist */,
 				C5ED98D216D471DB00EC6669 /* InfoPlist.strings */,
 				C5ED98D516D471DB00EC6669 /* main.m */,
+				C5C4C0CC16D65F37004A0CBB /* 104-index-cards.png */,
+				C5C4C0CD16D65F37004A0CBB /* 104-index-cards@2x.png */,
+				C5C4C0C816D65E0C004A0CBB /* 16-line-chart.png */,
+				C5C4C0C916D65E0C004A0CBB /* 16-line-chart@2x.png */,
 				C5ED98D716D471DB00EC6669 /* WillzPlotz_iOS-Prefix.pch */,
 				C5ED98DB16D471DB00EC6669 /* Default.png */,
 				C5ED98DD16D471DB00EC6669 /* Default@2x.png */,
@@ -236,6 +258,10 @@
 				C5ED98DE16D471DB00EC6669 /* Default@2x.png in Resources */,
 				C5ED98E016D471DB00EC6669 /* Default-568h@2x.png in Resources */,
 				C5ED98E316D471DB00EC6669 /* MainStoryboard.storyboard in Resources */,
+				C5C4C0CA16D65E0C004A0CBB /* 16-line-chart.png in Resources */,
+				C5C4C0CB16D65E0C004A0CBB /* 16-line-chart@2x.png in Resources */,
+				C5C4C0CE16D65F37004A0CBB /* 104-index-cards.png in Resources */,
+				C5C4C0CF16D65F37004A0CBB /* 104-index-cards@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +298,9 @@
 			files = (
 				C5ED98D616D471DB00EC6669 /* main.m in Sources */,
 				C5ED98DA16D471DB00EC6669 /* AppDelegate.m in Sources */,
-				C5ED98E616D471DB00EC6669 /* ViewController.m in Sources */,
+				C5ED98E616D471DB00EC6669 /* SymbolInputViewController.m in Sources */,
+				C5ED990616D4F7E800EC6669 /* PlotViewController.m in Sources */,
+				C5C4C0D216D65FDA004A0CBB /* QuotezDownload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +481,7 @@
 				C5ED990016D471DC00EC6669 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C5ED990116D471DC00EC6669 /* Build configuration list for PBXNativeTarget "WillzPlotz_iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +490,7 @@
 				C5ED990316D471DC00EC6669 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
