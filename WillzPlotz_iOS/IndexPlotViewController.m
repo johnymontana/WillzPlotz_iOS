@@ -15,9 +15,13 @@
 @interface IndexPlotViewController () <UICollectionViewDataSource>
 
 
+
 @end
 
+
 @implementation IndexPlotViewController
+
+
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -31,9 +35,13 @@
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+
     UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Graph" forIndexPath:indexPath];
     
-    [self updateCell:cell usingSymbol:@"AAPL"];
+    [self updateCell:cell usingSymbol:self.willzIndexSymbols[[indexPath indexAtPosition:[indexPath length]-1]]];
+     
+    NSLog(@"Index at position %d: %d", [indexPath length], [indexPath indexAtPosition:[indexPath length]-1]);
     return cell;
 }
 
@@ -45,6 +53,8 @@
         
         graphView.plotData = [QuotezDownload getQuotes:symbol];
         graphView.symbol = symbol;
+        ((GraphCollectionViewCell*)cell).plotButton.titleLabel.text = symbol;
+        
     }
 }
 
@@ -61,6 +71,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.willzIndexSymbols = @[@"AAPL", @"GE", @"C", @"TSLA", @"ORCL", @"MSFT", @"GOOG", @"IBM", @"GS", @"QQQ", @"SPY", @"BAC", @"BP", @"IWM", @"XLF"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,8 +93,12 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     PlotViewController* plvc = [segue destinationViewController];
-    plvc.plotData = [QuotezDownload getQuotes:@"AAPL"];
-    plvc.symbol = @"AAPL";
+    NSLog(@"Sender class: %@", [[sender class] description]);
+    NSLog(@"Sender title: %@", ((UIButton*)sender).titleLabel.text);
+    
+    
+    plvc.plotData = [QuotezDownload getQuotes:((UIButton*)sender).titleLabel.text];
+    plvc.symbol = ((UIButton*)sender).titleLabel.text;
 }
 
 

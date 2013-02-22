@@ -78,10 +78,10 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vLQ-8C-bky">
-                                            <rect key="frame" x="23" y="100" width="53" height="44"/>
+                                            <rect key="frame" x="6" y="100" width="85" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal" title="Plot">
+                                            <state key="normal">
                                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -160,7 +160,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Simple Plot" id="grs-X8-zuN"/>
+                    <tabBarItem key="tabBarItem" title="Simple Plot" image="17-bar-chart.png" id="grs-X8-zuN"/>
                     <connections>
                         <outlet property="graph_view" destination="pOh-t5-Prk" id="kih-Oc-O2C"/>
                         <outlet property="scroller" destination="5Vp-ly-0Y3" id="CTt-Um-dDs"/>
@@ -277,6 +277,7 @@
     <resources>
         <image name="104-index-cards.png" width="26" height="17"/>
         <image name="16-line-chart.png" width="30" height="24"/>
+        <image name="17-bar-chart.png" width="29" height="24"/>
     </resources>
     <classes>
         <class className="GraphCollectionViewCell" superclassName="UICollectionViewCell">

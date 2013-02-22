@@ -10,5 +10,16 @@
 
 @implementation GraphCollectionViewCell
 
+-(id)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        self.plotButton.titleLabel.text = self.graph_view.symbol;
+    }
+    
+    return self;
+}
 
 @end

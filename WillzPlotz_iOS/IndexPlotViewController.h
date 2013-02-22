@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface IndexPlotViewController : UICollectionViewController
+{
+   
+}
 @property (strong, nonatomic) IBOutlet UICollectionView *graphCollectionView;
+@property (strong, nonatomic) NSArray* willzIndexSymbols;
 
 -(void)updateCell:(UICollectionViewCell *)cell usingSymbol:(NSString*) symbol;
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5266D8416D80141003559DB /* 17-bar-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = C5266D8216D80141003559DB /* 17-bar-chart.png */; };
+		C5266D8516D80141003559DB /* 17-bar-chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5266D8316D80141003559DB /* 17-bar-chart@2x.png */; };
 		C5C4C0CA16D65E0C004A0CBB /* 16-line-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C4C0C816D65E0C004A0CBB /* 16-line-chart.png */; };
 		C5C4C0CB16D65E0C004A0CBB /* 16-line-chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C4C0C916D65E0C004A0CBB /* 16-line-chart@2x.png */; };
 		C5C4C0CE16D65F37004A0CBB /* 104-index-cards.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C4C0CC16D65F37004A0CBB /* 104-index-cards.png */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C5266D8216D80141003559DB /* 17-bar-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-bar-chart.png"; sourceTree = "<group>"; };
+		C5266D8316D80141003559DB /* 17-bar-chart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-bar-chart@2x.png"; sourceTree = "<group>"; };
 		C5C4C0C816D65E0C004A0CBB /* 16-line-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16-line-chart.png"; sourceTree = "<group>"; };
 		C5C4C0C916D65E0C004A0CBB /* 16-line-chart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16-line-chart@2x.png"; sourceTree = "<group>"; };
 		C5C4C0CC16D65F37004A0CBB /* 104-index-cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "104-index-cards.png"; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 		C5ED98D016D471DB00EC6669 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C5266D8216D80141003559DB /* 17-bar-chart.png */,
+				C5266D8316D80141003559DB /* 17-bar-chart@2x.png */,
 				C5ED98D816D471DB00EC6669 /* AppDelegate.h */,
 				C5ED98D916D471DB00EC6669 /* AppDelegate.m */,
 				C5ED98D116D471DB00EC6669 /* WillzPlotz_iOS-Info.plist */,
@@ -282,6 +288,8 @@
 				C5C4C0CB16D65E0C004A0CBB /* 16-line-chart@2x.png in Resources */,
 				C5C4C0CE16D65F37004A0CBB /* 104-index-cards.png in Resources */,
 				C5C4C0CF16D65F37004A0CBB /* 104-index-cards@2x.png in Resources */,
+				C5266D8416D80141003559DB /* 17-bar-chart.png in Resources */,
+				C5266D8516D80141003559DB /* 17-bar-chart@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
