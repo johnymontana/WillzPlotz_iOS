@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+       // [self.graph_view setUpWithData:self.plotData];
     }
     return self;
 }
@@ -43,6 +43,6 @@
 
 -(void)setUpWithData:(NSArray*) plotData
 {
-    //[self.graph_view setUpWithData:plotData];
+    [self.graph_view setUpWithData:plotData];
 }
 @end

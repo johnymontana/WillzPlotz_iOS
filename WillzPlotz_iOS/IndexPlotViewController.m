@@ -69,14 +69,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    PlotViewController* plvc = [segue destinationViewController];
+//
+//    // [plvc setUpWithData:[QuotezDownload getQuotes:@"AAPL"]];
+//    plvc.plotData = ((GraphView*)sender).plotData;
+//    plvc.symbol = ((GraphView*)sender).symbol;
+//
+//}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     PlotViewController* plvc = [segue destinationViewController];
-    
-    // [plvc setUpWithData:[QuotezDownload getQuotes:@"AAPL"]];
-    plvc.plotData = ((GraphView*)sender).plotData;
-    plvc.symbol = ((GraphView*)sender).symbol;
-    
+    plvc.plotData = [QuotezDownload getQuotes:@"AAPL"];
+    plvc.symbol = @"AAPL";
 }
 
 

@@ -11,5 +11,6 @@
 
 @interface GraphCollectionViewCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet GraphView *graph_view;
+@property (strong, nonatomic) IBOutlet UIButton *plotButton;
 
 @end
