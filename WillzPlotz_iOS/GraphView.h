@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 William Lyon. All rights reserved.
 //
 
+// TODO: figure out scaling: find min/max and act accordingly?
+
 #import <UIKit/UIKit.h>
 //#import "ViewController.h"
 #import "QuotezDownload.h"

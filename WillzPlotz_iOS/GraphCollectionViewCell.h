@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GraphView.h"
+#import "SmallMultipleStockView.h"
 
 @interface GraphCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet GraphView *graph_view;
-@property (strong, nonatomic) IBOutlet UIButton *plotButton;
+
+@property (strong, nonatomic) IBOutlet SmallMultipleStockView *smallMultStockView;
 
 @end

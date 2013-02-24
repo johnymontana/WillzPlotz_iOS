@@ -23,6 +23,15 @@
     return self;
 }
 
+-(void)plotData:(NSArray*)plotData
+{
+    _plotData = plotData;
+    _scroller.contentSize = CGSizeMake(kDefaultGraphWidth, kGraphHeight);
+    [self.graph_view setUpWithData:self.plotData];
+    self.graph_view.symbol = self.symbol;
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,6 +52,6 @@
 
 -(void)setUpWithData:(NSArray*) plotData
 {
-    [self.graph_view setUpWithData:plotData];
+   // [self.graph_view setUpWithData:plotData];
 }
 @end

@@ -92,13 +92,26 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    PlotViewController* plvc = [segue destinationViewController];
-    NSLog(@"Sender class: %@", [[sender class] description]);
-    NSLog(@"Sender title: %@", ((UIButton*)sender).titleLabel.text);
+    if ([sender isKindOfClass:[GraphView class]])
+    {
+        PlotViewController* plvc = [[PlotViewController alloc] init];
+        plvc.graph_view = (GraphView*)sender;
+        plvc.plotData = ((GraphView*)sender).plotData;
+        plvc.symbol = ((GraphView*)sender).symbol;
+
+    }
+    
+    else
+    {
+        
+        PlotViewController* plvc = [segue destinationViewController];
+        NSLog(@"Sender class: %@", [[sender class] description]);
+        NSLog(@"Sender title: %@", ((UIButton*)sender).titleLabel.text);
     
     
-    plvc.plotData = [QuotezDownload getQuotes:((UIButton*)sender).titleLabel.text];
-    plvc.symbol = ((UIButton*)sender).titleLabel.text;
+        plvc.plotData = [QuotezDownload getQuotes:((UIButton*)sender).titleLabel.text];
+        plvc.symbol = ((UIButton*)sender).titleLabel.text;
+    }
 }
 
 
@@ -113,18 +126,23 @@
         // perform segue!!!
         NSLog(@"Perform segue!");
         
-        PlotViewController* plvc = [[PlotViewController alloc] init];
-        
+       // PlotViewController* plvc = [[PlotViewController alloc] init];
+        NSString *vcid = @"plotViewController";
+        UIViewController *plvc = [self.storyboard instantiateViewControllerWithIdentifier:vcid];
         // [plvc setUpWithData:[QuotezDownload getQuotes:@"AAPL"]];
         GraphCollectionViewCell* cell = [self.collectionView cellForItemAtIndexPath:indexPath];
         
         GraphView* graphView = ((GraphCollectionViewCell*)cell).graph_view;
-
-        plvc.plotData = graphView.plotData;
-        plvc.symbol = graphView.symbol;
-
+        GraphView* newGraphView = [[GraphView alloc] initWithFrame:graphView.frame];
         
+      //  plvc.graph_view = newGraphView;
+      //  plvc.plotData = graphView.plotData;
+      //  plvc.symbol = graphView.symbol;
+        
+       // plvc.view = graphView;
         [self.navigationController pushViewController:plvc animated:YES];
+     //   [self.navigationController performSegueWithIdentifier:@"pushPlot" sender:graphView];
+    
        // [self.navigationController performSegueWithIdentifier:@"pushGraphView" sender:graphView];
     }
 }
