@@ -56,6 +56,7 @@
 @property int barTop;
 @property int barWidth;
 @property int circleRadius;
+@property int barStepX;
 
 
 // dataSource delegate should implement: plotData...

@@ -24,8 +24,9 @@
     _graphHeight = self.bounds.size.height;
     _defaultGraphWidth = self.bounds.size.width;
     _offsetX = 5;
-    //_stepX = self.bounds.size.width / [self.dataSource.plotData count];
-    _stepX = 10;
+    _stepX = self.bounds.size.width / [self.dataSource.plotData count];
+    
+    //_stepX = 5;
     _graphBottom = self.bounds.size.height;
     _graphTop = 0;
     _stepY = 50;
@@ -33,7 +34,7 @@
     _barTop = 10;
     _barWidth = 10;
     _circleRadius = 3;
-    
+    _barStepX = self.bounds.size.width / ([self.dataSource.plotData count]);
     
     
     [self setNeedsDisplay];
@@ -225,7 +226,7 @@
      float maxBarHeight = self.graphHeight - self.barTop - self.offsetY;
      for (int i = 0; i < [self.dataSource.plotData count]; i++)
      {
-         float barX = self.offsetX + self.stepX + i * self.stepX - self.barWidth / 2;
+         float barX = i * self.stepX - self.barWidth;
          float barY = self.barTop + maxBarHeight - maxBarHeight * ([self.dataSource.plotData[i] doubleValue] / self.dataSource.maxValue);
          float barHeight = maxBarHeight * ([self.dataSource.plotData[i] doubleValue] / self.dataSource.maxValue);
          CGRect barRect = CGRectMake(barX, barY, self.barWidth, barHeight);
