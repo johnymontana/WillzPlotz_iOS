@@ -39,12 +39,13 @@
 
     UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Graph" forIndexPath:indexPath];
     
-    [self updateCell:cell usingSymbol:self.willzIndexSymbols[[indexPath indexAtPosition:[indexPath length]-1]]];
+   // [self updateCell:cell usingSymbol:self.willzIndexSymbols[[indexPath indexAtPosition:[indexPath length]-1]]];
      
     NSLog(@"Index at position %d: %d", [indexPath length], [indexPath indexAtPosition:[indexPath length]-1]);
     return cell;
 }
 
+/*
 -(void)updateCell:(UICollectionViewCell *)cell usingSymbol:(NSString*) symbol
 {
     if ([cell isKindOfClass:[GraphCollectionViewCell class]])
@@ -57,6 +58,7 @@
         
     }
 }
+*/
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -71,7 +73,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.willzIndexSymbols = @[@"AAPL", @"GE", @"C", @"TSLA", @"ORCL", @"MSFT", @"GOOG", @"IBM", @"GS", @"QQQ", @"SPY", @"BAC", @"BP", @"IWM", @"XLF"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,6 +91,8 @@
 //
 //}
 
+
+/*
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([sender isKindOfClass:[GraphView class]])
@@ -113,7 +116,9 @@
         plvc.symbol = ((UIButton*)sender).titleLabel.text;
     }
 }
+*/
 
+/*
 
 -(IBAction)selectGraph:(UITapGestureRecognizer *)gesture
 {
@@ -146,5 +151,6 @@
        // [self.navigationController performSegueWithIdentifier:@"pushGraphView" sender:graphView];
     }
 }
+ */
 
 @end

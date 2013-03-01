@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WillzIndexModel.h"
 
 @interface IndexPlotViewController : UICollectionViewController
-{
-   
-}
+
 @property (strong, nonatomic) IBOutlet UICollectionView *graphCollectionView;
-@property (strong, nonatomic) NSArray* willzIndexSymbols;
+@property (strong, nonatomic) WillzIndexModel* willzIndex;
 
 -(void)updateCell:(UICollectionViewCell *)cell usingSymbol:(NSString*) symbol;
 

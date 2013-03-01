@@ -15,4 +15,8 @@
 
 @interface WillzIndexModel : NSObject
 
+@property (strong, nonatomic) NSMutableArray* stockArray;
+
+-(id)init;
+
 @end

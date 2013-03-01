@@ -16,7 +16,7 @@
     
     if (self)
     {
-        self.plotButton.titleLabel.text = self.graph_view.symbol;
+        //self.plotButton.titleLabel.text = self.graph_view.symbol;
     }
     
     return self;

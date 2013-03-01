@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="7Rn-GV-VxF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GGE-b0-umL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -8,13 +8,13 @@
         <scene sceneID="58y-IN-oL7">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="qIJ-PJ-9rZ" customClass="IndexPlotViewController" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Rv2-1x-w10">
-                        <rect key="frame" x="0.0" y="64" width="568" height="256"/>
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Rv2-1x-w10">
+                        <rect key="frame" x="0.0" y="20" width="568" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.81729632340000002" blue="0.076443606040000001" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s9P-UN-wFf">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s9P-UN-wFf">
                             <size key="itemSize" width="91" height="92"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -37,9 +37,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <outlet property="graph_view" destination="DuM-wZ-fdM" id="ncs-J0-cX0"/>
                                     <outlet property="smallMultStockView" destination="DuM-wZ-fdM" id="Bni-H2-w2e"/>
-                                    <segue destination="3Fp-qL-Ft1" kind="push" id="bPR-2O-zLs"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -63,23 +61,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="713" y="731"/>
-        </scene>
-        <!--Navigation Controller - Index Plot-->
-        <scene sceneID="f2s-zy-AAb">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="7Rn-GV-VxF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Index Plot" image="104-index-cards.png" id="shZ-jh-X5b"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fpF-bB-Ge8">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="qIJ-PJ-9rZ" kind="relationship" relationship="rootViewController" id="HHx-jV-gTX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ue2-6g-sHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="193" y="753"/>
+            <point key="canvasLocation" x="709" y="553"/>
         </scene>
         <!--Plot View Controller - plotViewController-->
         <scene sceneID="3nh-dF-Yo1">
@@ -89,13 +71,13 @@
                         <rect key="frame" x="0.0" y="64" width="568" height="256"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="bS5-VD-ueX" customClass="PriceGraphView">
-                                <rect key="frame" x="0.0" y="0.0" width="568" height="154"/>
+                            <view contentMode="scaleToFill" id="bS5-VD-ueX" customClass="GraphView">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="188"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="ety-N1-ey4" customClass="VolumeGraphView">
-                                <rect key="frame" x="0.0" y="162" width="568" height="94"/>
+                            <view contentMode="scaleToFill" id="ety-N1-ey4" customClass="GraphView">
+                                <rect key="frame" x="0.0" y="196" width="568" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -105,10 +87,78 @@
                     </view>
                     <navigationItem key="navigationItem" title="Stock Symbol Here" id="7bg-bo-78O"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="price_view" destination="bS5-VD-ueX" id="OrI-lr-hSv"/>
+                        <outlet property="volume_view" destination="ety-N1-ey4" id="n6a-hi-aLv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQe-5h-eOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1445" y="731"/>
+            <point key="canvasLocation" x="1747" y="1337"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="esy-lR-Yek">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="GGE-b0-umL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GRK-XD-cBQ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="MAU-lr-S2E" kind="relationship" relationship="rootViewController" id="qEe-FY-oRs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hDV-30-IdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="1089"/>
+        </scene>
+        <!--Willz Index Table View Controller-->
+        <scene sceneID="ajY-MT-Ijf">
+            <objects>
+                <tableViewController id="MAU-lr-S2E" customClass="WillzIndexTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Voj-Pu-39i">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Stock" textLabel="bPI-qZ-fiV" detailTextLabel="4Ur-TO-clg" style="IBUITableViewCellStyleSubtitle" id="VWa-6x-IkZ">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bPI-qZ-fiV">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Ur-TO-clg">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="3Fp-qL-Ft1" kind="push" id="0NP-0b-YvV"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MAU-lr-S2E" id="0My-Pl-8to"/>
+                            <outlet property="delegate" destination="MAU-lr-S2E" id="c6e-dT-RjG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="efz-ol-xM9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j20-v8-5IW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1246" y="1213"/>
         </scene>
     </scenes>
     <resources>
@@ -118,8 +168,6 @@
         <class className="GraphCollectionViewCell" superclassName="UICollectionViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GraphCollectionViewCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="graph_view" candidateClass="GraphView"/>
-                <relationship kind="outlet" name="plotButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="smallMultStockView" candidateClass="SmallMultipleStockView"/>
             </relationships>
         </class>
@@ -136,12 +184,9 @@
         <class className="PlotViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PlotViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="graph_view" candidateClass="GraphView"/>
-                <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="price_view" candidateClass="GraphView"/>
+                <relationship kind="outlet" name="volume_view" candidateClass="GraphView"/>
             </relationships>
-        </class>
-        <class className="PriceGraphView" superclassName="GraphView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PriceGraphView.h"/>
         </class>
         <class className="SmallMultipleStockView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SmallMultipleStockView.h"/>
@@ -161,8 +206,8 @@
         <class className="UICollectionViewLayout" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
-        <class className="VolumeGraphView" superclassName="GraphView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VolumeGraphView.h"/>
+        <class className="WillzIndexTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WillzIndexTableViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

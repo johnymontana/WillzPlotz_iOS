@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _scroller.contentSize = CGSizeMake(kDefaultGraphWidth, kGraphHeight);
+   // _scroller.contentSize = CGSizeMake(kDefaultGraphWidth, kGraphHeight);
     [self.graph_view setUpWithData:@[@0.0, @0.1, @0.2, @0.3, @0.7, @0.9, @0.1, @0.77, @0.123, @0.8, @0.1, @0.2, @0.3, @0.4, @0.5, @0.6]];
      
 	// Do any additional setup after loading the view.

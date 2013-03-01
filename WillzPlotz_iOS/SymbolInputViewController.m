@@ -34,8 +34,8 @@
     PlotViewController* plvc = [segue destinationViewController];
     
    // [plvc setUpWithData:[QuotezDownload getQuotes:@"AAPL"]];
-    plvc.plotData = [QuotezDownload getQuotes:self.symbolTextField.text];
-    plvc.symbol = self.symbolTextField.text;
+    //plvc.plotData = [QuotezDownload getQuotes:self.symbolTextField.text];
+   // plvc.symbol = self.symbolTextField.text;
                      
 }
 

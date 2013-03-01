@@ -7,6 +7,9 @@
 //
 
 #import "PlotViewController.h"
+#import "StockModel.h"
+#import "GraphView.h"
+#import "PriceGraphView.h"
 
 @interface PlotViewController ()
 
@@ -14,44 +17,105 @@
 
 @implementation PlotViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithStockModel:(StockModel*)stockModel
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-       // [self.graph_view setUpWithData:self.plotData];
+    self = [super init];
+    if (self)
+    {
+        self.myStockModel = [[StockModel alloc] initWithSymbol:stockModel.symbol];
+        
+        NSLog(@"init with symbol: %@", stockModel.symbol);
+        _price_view = [[GraphView alloc] init];
+        
+        
+        _price_view.dataSource = self.myStockModel.priceHistory;
+        _volume_view.dataSource = self.myStockModel.volumeHistory;
+        [self.volume_view setNeedsDisplay];
+        [self.price_view setNeedsDisplay];
     }
+    
     return self;
 }
 
--(void)plotData:(NSArray*)plotData
+-(void)setUpWithSymbol:(NSString*)symbol
 {
-    _plotData = plotData;
-    _scroller.contentSize = CGSizeMake(kDefaultGraphWidth, kGraphHeight);
-    [self.graph_view setUpWithData:self.plotData];
-    self.graph_view.symbol = self.symbol;
-
+    self.symbol = symbol;
+    //self.myStockModel = [[StockModel alloc] initWithSymbol:symbol];
+    //self.price_view.dataSource = self.myStockModel.priceHistory;
+    //[self.price_view setNeedsDisplay];
+    NSLog(@"Length of self.dataSource.plotData: %d", [self.price_view.dataSource.plotData count]);
 }
 
-- (void)viewDidLoad
+-(id)initWithSymbol:(NSString*)symbol
 {
-    [super viewDidLoad];
-    _scroller.contentSize = CGSizeMake(kDefaultGraphWidth, kGraphHeight);
-    [self.graph_view setUpWithData:self.plotData];
-    self.graph_view.symbol = self.symbol;
+    self = [super init];
+    if (self)
+    {
+        self.myStockModel = [[StockModel alloc] initWithSymbol:symbol];
+        
+        NSLog(@"init with symbol: %@", symbol);
+        _price_view = [[GraphView alloc] init];
+        
+        
+        _price_view.dataSource = self.myStockModel.priceHistory;
+        _volume_view.dataSource = self.myStockModel.volumeHistory;
+        [self.volume_view setNeedsDisplay];
+        [self.price_view setNeedsDisplay];
+    }
     
-   // [self.graph_view getOwnData];
+    return self;
+
+}
+//-(void)setPrice_view:(GraphView *)price_view
+//{
+//
+//    _price_view = price_view;
+//    _price_view.plotData = price_view.plotData;
+//
+//}
+
+-(void)setUpWithStockModel:(StockModel *)myStockModel
+{
+
+    self.myStockModel = myStockModel;
     
-	// Do any additional setup after loading the view.
 }
+    //    _myStockModel=myStockModel;
+    //[self.price_view setDataSource:self.myStockModel.priceHistory];
+    
+    
+//    self.price_view.dataSource = self.myStockModel.priceHistory;
+    
+//    _volume_view.dataSource = self.myStockModel.volumeHistory;
+    
+//    NSLog(@"Length of plvc.mystockModel.priceHistoty: %d", [self.myStockModel.priceHistory.plotData count]);
+    
+//    NSLog(@"Length of plvc.price_view.dataSource.priceHistory: %d", [self.price_view.dataSource.plotData count]);
+    
+    //[self.volume_view setNeedsDisplay];
+    //[self.price_view setNeedsDisplay];
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+//}
 
--(void)setUpWithData:(NSArray*) plotData
+-(void)viewWillAppear:(BOOL)animated
 {
-   // [self.graph_view setUpWithData:plotData];
+    //self.myStockModel = [[StockModel alloc] initWithSymbol:self.symbol];
+    
+    self.price_view.dataSource = self.myStockModel.priceHistory;
+    [self.price_view setNeedsDisplay];
+    
+    
+    self.volume_view.dataSource = self.myStockModel.volumeHistory;
+   [self.volume_view setNeedsDisplay];
+    
+    
+    //self.myStockModel = [[StockModel alloc] initWithSymbol:stockModel.symbol];
+    
+    //NSLog(@"init with symbol: %@", self.myStockModel.symbol);
+    //self.price_view.dataSource = self.myStockModel.priceHistory;
+    //self.volume_view.dataSource = self.myStockModel.volumeHistory;
+    //[self.volume_view setNeedsDisplay];
+    //[self.price_view setNeedsDisplay];
+    
 }
 @end

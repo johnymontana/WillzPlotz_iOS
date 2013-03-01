@@ -8,18 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "GraphView.h"
+#import "StockModel.h"
+
+// set a delegate for setting the price_view and volume_view dataSources?
 
 @interface PlotViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet GraphView *graph_view;
+@property (strong, nonatomic) IBOutlet GraphView *price_view;
+@property (strong, nonatomic) IBOutlet GraphView *volume_view;
 
-@property (strong, nonatomic) IBOutlet UIScrollView *scroller;
-@property (strong, nonatomic) NSArray* plotData;
 @property (strong, nonatomic) NSString* symbol;
 
+// for testing:
+@property (strong, nonatomic) StockModel* myStockModel;
 
--(void)setUpWithData:(NSArray*)plotData;
 
-
+-(id)initWithStockModel:(StockModel*)stockModel;
+-(void)setUpWithStockModel:(StockModel*)myStockModel;
+-(void)setUpWithSymbol:(NSString*)symbol;
 
 @end

@@ -12,13 +12,54 @@
 
 //context = UIGraphicsGetCurrentContext();
 
+-(void)setUp
+{
+    // TODO: set these values from self.frame (or bounds??)
+    
+    NSLog(@"self.bounds.origin.x: %f", self.bounds.origin.x);
+    NSLog(@"self.bounds.origin.y: %f", self.bounds.origin.y);
+    NSLog(@"self.bounds.size.height: %f", self.bounds.size.height);
+    NSLog(@"self.bounds.size.width: %f", self.bounds.size.width);
+    
+    _graphHeight = self.bounds.size.height;
+    _defaultGraphWidth = self.bounds.size.width;
+    _offsetX = 5;
+    //_stepX = self.bounds.size.width / [self.dataSource.plotData count];
+    _stepX = 10;
+    _graphBottom = self.bounds.size.height;
+    _graphTop = 0;
+    _stepY = 50;
+    _offsetY = 10;
+    _barTop = 10;
+    _barWidth = 10;
+    _circleRadius = 3;
+    
+    
+    
+    [self setNeedsDisplay];
+
+}
+
+-(void)setDataSource:(id<GraphViewDataSource>)dataSource
+{
+    _dataSource = dataSource;
+    _stepX = self.bounds.size.width / [dataSource.plotData count];
+    [self setNeedsDisplay];
+    
+}
+
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self setUp];
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-      //  context = UIGraphicsGetCurrentContext();
-        NSLog(@"init");
+        [self setUp];
+        NSLog(@"initWithFrame");
     }
     
     
@@ -26,10 +67,10 @@
     return self;
 }
 
--(void)getOwnData
-{
-    _plotData = [QuotezDownload getQuotes:@"APPL"];
-}
+//-(void)getOwnData
+//{
+//    _plotData = @[@1.2, @0.5, @0.5];
+//}
 
 -(void)setUpWithData:(NSArray*)setUpData
 {
@@ -42,30 +83,33 @@
 
 -(void)drawLineGraphWithContext:(CGContextRef) ctx
 {
+    _stepX = self.bounds.size.width / [self.dataSource.plotData count]; // should not need to this: BAD - why doesn't dataSource setter work???
+    
     //CGContextRef ctx = UIGraphicsGetCurrentContext();
+    double maxValue = self.dataSource.maxValue;
     
     CGContextSetLineWidth(ctx, 2.0);
     CGContextSetStrokeColorWithColor(ctx, [[UIColor colorWithRed:1.0 green:0.5 blue:0. alpha:1.0]CGColor]);
     
-    int maxGraphHeight = kGraphHeight - kOffsetY;
+    int maxGraphHeight = self.graphHeight - self.offsetY;
     CGContextBeginPath(ctx);
-    CGContextMoveToPoint(ctx, kOffsetX, kGraphHeight - maxGraphHeight * [self.plotData[0] doubleValue]);
-    for (int i = 1; i < [self.plotData count]; i++)
+    CGContextMoveToPoint(ctx, self.offsetX, self.graphHeight - maxGraphHeight * ([self.dataSource.plotData[0] doubleValue]/maxValue));
+    for (int i = 0; i < [self.dataSource.plotData count]; i++)
     {
-        CGContextAddLineToPoint(ctx, kOffsetX + i * kStepX, kGraphHeight - maxGraphHeight * [self.plotData[i] doubleValue]);
+        CGContextAddLineToPoint(ctx, self.offsetX + i * self.stepX, self.graphHeight - maxGraphHeight * ([self.dataSource.plotData[i] doubleValue]/maxValue));
     }
     
     CGContextDrawPath(ctx, kCGPathStroke);
     
-    CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:1.0 green:0.5 blue:0. alpha:1.0]CGColor]);
-    for (int i = 1; i < [self.plotData count] - 1; i++)
-    {
-        float x = kOffsetX + i * kStepX;
-        float y = kGraphHeight - maxGraphHeight * [self.plotData[i] doubleValue];
-        CGRect rect = CGRectMake(x - kCircleRadius, y - kCircleRadius, 2 * kCircleRadius, 2 * kCircleRadius);
-        CGContextAddEllipseInRect(ctx, rect);
-    }
-    CGContextDrawPath(ctx, kCGPathFillStroke);
+    //CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:1.0 green:0.5 blue:0. alpha:1.0]CGColor]);
+    //for (int i = 1; i < [self.dataSource.plotData count] - 1; i++)
+    //{
+    //    float x = self.offsetX + i * self.stepX;
+    //    float y = self.graphHeight - maxGraphHeight * [self.dataSource.plotData[i] doubleValue];
+    //    CGRect rect = CGRectMake(x - self.circleRadius, y - self.circleRadius, 2 * self.circleRadius, 2 * self.circleRadius);
+    //    CGContextAddEllipseInRect(ctx, rect);
+    //}
+    //CGContextDrawPath(ctx, kCGPathFillStroke);
 }
 
 -(void)drawSymbolWithContext:(CGContextRef) ctx
@@ -89,12 +133,12 @@
     
     CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0. green:0. blue:0. alpha:1.0] CGColor]);
     
-    for (int i = 1; i < [self.plotData count]; i++)
+    for (int i = 1; i < [self.dataSource.plotData count]; i++)
     {
         NSString *theText = [NSString stringWithFormat:@"%d", i];
         CGSize labelSize = [theText sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18]];
         
-        CGContextShowTextAtPoint(ctx, kOffsetX + i * kStepX - labelSize.width/2, kGraphBottom-5, [theText cStringUsingEncoding:NSUTF8StringEncoding], [theText length]);
+        CGContextShowTextAtPoint(ctx, self.offsetX + i * self.stepX - labelSize.width/2, self.graphBottom-5, [theText cStringUsingEncoding:NSUTF8StringEncoding], [theText length]);
         
     }
 }
@@ -106,20 +150,20 @@
     CGFloat dash[] = {2.0, 2.0};
     CGContextSetLineDash(ctx, 0.0, dash, 2);
     
-    int howMany = (kDefaultGraphWidth - kOffsetX) / kStepX;
+    int howMany = (self.defaultGraphWidth - self.offsetX) / self.stepX;
     
     for (int i =0; i < howMany; i++)
     {
-        CGContextMoveToPoint(ctx, kOffsetX + i * kStepX, kGraphTop);
-        CGContextAddLineToPoint(ctx, kOffsetX + i * kStepX, kGraphBottom);
+        CGContextMoveToPoint(ctx, self.offsetX + i * self.stepX, self.graphTop);
+        CGContextAddLineToPoint(ctx, self.offsetX + i * self.stepX, self.graphBottom);
     }
     
-    int howManyHorizontal = (kGraphBottom - kGraphTop - kOffsetY) / kStepY;
+    int howManyHorizontal = (self.graphBottom - self.graphTop - self.offsetY) / self.stepY;
     
     for (int i = 0; i <= howManyHorizontal; i++)
     {
-        CGContextMoveToPoint(ctx, kOffsetY, kGraphBottom - kOffsetY - i * kStepY);
-        CGContextAddLineToPoint(ctx, kDefaultGraphWidth, kGraphBottom-kOffsetY-i*kStepY);
+        CGContextMoveToPoint(ctx, self.offsetY, self.graphBottom - self.offsetY - i * self.stepY);
+        CGContextAddLineToPoint(ctx, self.defaultGraphWidth, self.graphBottom-self.offsetY-i*self.stepY);
     }
     
     CGContextStrokePath(ctx);
@@ -149,6 +193,19 @@
 
 //float data[] = {0.7, 0.01, 0.9, 1.0, 0.2, 0.2, 0.99, 0.1, 0.2, 0.3, 0.4, 0.1, 0.2, 0.3, 0.4, 0.5, 0.2};
 
+-(void)drawBarGraphWithContext:(CGContextRef)ctx
+{
+     float maxBarHeight = self.graphHeight - self.barTop - self.offsetY;
+     for (int i = 0; i < [self.dataSource.plotData count]; i++)
+     {
+         float barX = self.offsetX + self.stepX + i * self.stepX - self.barWidth / 2;
+         float barY = self.barTop + maxBarHeight - maxBarHeight * ([self.dataSource.plotData[i] doubleValue] / self.dataSource.maxValue);
+         float barHeight = maxBarHeight * ([self.dataSource.plotData[i] doubleValue] / self.dataSource.maxValue);
+         CGRect barRect = CGRectMake(barX, barY, self.barWidth, barHeight);
+         [self drawBar:barRect context:ctx];
+     }
+     
+}
 - (void)drawRect:(CGRect)rect
 {
     
@@ -156,20 +213,21 @@
  
     
    
-    /* float maxBarHeight = kGraphHeight - kBarTop - kOffsetY;
-    for (int i = 0; i < sizeof(data); i++)
-    {
-        float barX = kOffsetX + kStepX + i * kStepX - kBarWidth / 2;
-        float barY = kBarTop + maxBarHeight - maxBarHeight * data[i];
-        float barHeight = maxBarHeight * data[i];
-        CGRect barRect = CGRectMake(barX, barY, kBarWidth, barHeight);
-        [self drawBar:barRect context:context];
-    }
-    */
+    
     [self drawGridLinesWithContext:context];
-    [self drawLineGraphWithContext:context];
-    [self drawNumbersForDataPointsWithContext:context];
-    [self drawSymbolWithContext:context];
+    
+    if (self.dataSource.graphType == LINE_GRAPH_TYPE)
+    {
+        [self drawLineGraphWithContext:context];
+    }
+    
+    else if (self.dataSource.graphType == BAR_GRAPH_TYPE)
+    {
+        [self drawBarGraphWithContext:context];
+    }
+    //[self drawNumbersForDataPointsWithContext:context];
+    //[self drawSymbolWithContext:context];
+    
 }
 
 @end
