@@ -81,7 +81,28 @@
     
     NSLog(@"symbol: %@", stockModel.symbol);
     cell.textLabel.text = stockModel.symbol;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"YTD return: %@", [stockModel.ytdReturn stringValue]];
+    
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterPercentStyle];
+    NSString* ytdRet = [f stringForObjectValue:stockModel.ytdReturn];
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"YTD return: %@", ytdRet];
+    
+    
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+   
+    
+    if ([stockModel.ytdReturn doubleValue] > 0)
+    {
+        cell.contentView.backgroundColor = [UIColor greenColor];
+        cell.accessoryView.backgroundColor = [UIColor greenColor];
+    }
+    else if ([stockModel.ytdReturn  doubleValue] < 0)
+    {
+        cell.contentView.backgroundColor = [UIColor redColor];
+        cell.accessoryView.backgroundColor = [UIColor redColor];
+    }
     return cell;
 }
 

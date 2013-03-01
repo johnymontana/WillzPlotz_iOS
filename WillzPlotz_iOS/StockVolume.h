@@ -13,10 +13,12 @@
 
 @property (strong, nonatomic) NSArray* plotData;
 @property double maxValue;
+@property double minValue;
 @property int graphType;
 
 
 -(id)initWithVolumeData:(NSArray*) priceData;
-
+-(double)findMaxValue:(NSArray*)array_of_doubles;
+-(double)findMinValue:(NSArray*)array_of_doubles;
 
 @end

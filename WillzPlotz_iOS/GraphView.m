@@ -87,16 +87,20 @@
     
     //CGContextRef ctx = UIGraphicsGetCurrentContext();
     double maxValue = self.dataSource.maxValue;
-    
+    double minValue = self.dataSource.minValue;
+    double verticalScale = (self.graphHeight-self.offsetY) / (maxValue-minValue);
     CGContextSetLineWidth(ctx, 2.0);
     CGContextSetStrokeColorWithColor(ctx, [[UIColor colorWithRed:1.0 green:0.5 blue:0. alpha:1.0]CGColor]);
     
     int maxGraphHeight = self.graphHeight - self.offsetY;
     CGContextBeginPath(ctx);
-    CGContextMoveToPoint(ctx, self.offsetX, self.graphHeight - maxGraphHeight * ([self.dataSource.plotData[0] doubleValue]/maxValue));
+    //CGContextMoveToPoint(ctx, self.offsetX, self.graphHeight - maxGraphHeight * ([self.dataSource.plotData[0] doubleValue]/maxValue));
+    
+    CGContextMoveToPoint(ctx, self.offsetX, ([self.dataSource.plotData[0] doubleValue] - minValue) * verticalScale);
     for (int i = 0; i < [self.dataSource.plotData count]; i++)
     {
-        CGContextAddLineToPoint(ctx, self.offsetX + i * self.stepX, self.graphHeight - maxGraphHeight * ([self.dataSource.plotData[i] doubleValue]/maxValue));
+        //CGContextAddLineToPoint(ctx, self.offsetX + i * self.stepX, self.graphHeight - maxGraphHeight * ([self.dataSource.plotData[i] doubleValue]/maxValue));
+        CGContextAddLineToPoint(ctx, self.offsetX + i * self.stepX, ([self.dataSource.plotData[i] doubleValue] - minValue) * verticalScale+self.offsetY);
     }
     
     CGContextDrawPath(ctx, kCGPathStroke);
@@ -143,6 +147,32 @@
     }
 }
 
+-(void)drawMinMaxNumbersWithContext:(CGContextRef) ctx
+{
+    CGContextSetTextMatrix(ctx, CGAffineTransformMake(1.0, 0.0, 0.0, -1.0, 0.0, 0.0));
+    CGContextSelectFont(ctx, "Helvetica", 12, kCGEncodingMacRoman);
+    
+    CGContextSetTextDrawingMode(ctx, kCGTextFill);
+    
+    CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0. green:0. blue:0. alpha:1.0] CGColor]);
+    NSNumberFormatter* f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSString* maxVal = [f stringForObjectValue:[NSNumber numberWithDouble:self.dataSource.maxValue]];
+    NSString* minVal = [f stringForObjectValue:[NSNumber numberWithDouble:self.dataSource.minValue]];
+    
+    //NSString *maxVal = [NSString stringWithFormat:@"%f", self.dataSource.maxValue];
+    //NSString *minVal = [NSString stringWithFormat:@"%f", self.dataSource.minValue];
+    
+    CGSize labelSize = [maxVal sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18]];
+    
+    CGContextShowTextAtPoint(ctx, self.offsetX, self.graphTop+15, [maxVal cStringUsingEncoding:NSUTF8StringEncoding], [maxVal length]);
+    
+    labelSize = [minVal sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18]];
+    
+    CGContextShowTextAtPoint(ctx, self.offsetX, self.graphBottom, [minVal cStringUsingEncoding:NSUTF8StringEncoding], [minVal length]);
+    
+}
 -(void)drawGridLinesWithContext:(CGContextRef) ctx
 {
     CGContextSetLineWidth(ctx, 0.6);
@@ -188,10 +218,7 @@
     CGContextFillPath(ctx);
 }
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 
-//float data[] = {0.7, 0.01, 0.9, 1.0, 0.2, 0.2, 0.99, 0.1, 0.2, 0.3, 0.4, 0.1, 0.2, 0.3, 0.4, 0.5, 0.2};
 
 -(void)drawBarGraphWithContext:(CGContextRef)ctx
 {
@@ -219,11 +246,13 @@
     if (self.dataSource.graphType == LINE_GRAPH_TYPE)
     {
         [self drawLineGraphWithContext:context];
+        [self drawMinMaxNumbersWithContext:context];
     }
     
     else if (self.dataSource.graphType == BAR_GRAPH_TYPE)
     {
         [self drawBarGraphWithContext:context];
+        [self drawMinMaxNumbersWithContext:context];
     }
     //[self drawNumbersForDataPointsWithContext:context];
     //[self drawSymbolWithContext:context];

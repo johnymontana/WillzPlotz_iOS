@@ -21,6 +21,7 @@
     {
         self.plotData = priceData;
         self.maxValue = [self findMaxValue:priceData];
+        self.minValue = [self findMinValue:priceData];
         self.graphType = LINE_GRAPH_TYPE;
     }
     
@@ -42,6 +43,19 @@
     }
     
     return tempMax;
+}
+
+-(double)findMinValue:(NSArray*) array_of_doubles
+{
+    double tempMin = [[array_of_doubles objectAtIndex:0] doubleValue];
+    
+    for (NSNumber* myNum in array_of_doubles)
+        if ([myNum doubleValue] < tempMin)
+        {
+            tempMin = [myNum doubleValue];
+        }
+    
+    return tempMin;
 }
 
 @end

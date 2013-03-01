@@ -111,7 +111,7 @@
             </objects>
             <point key="canvasLocation" x="820" y="1089"/>
         </scene>
-        <!--Willz Index Table View Controller-->
+        <!--Willz Index Table View Controller - WillzIndex-->
         <scene sceneID="ajY-MT-Ijf">
             <objects>
                 <tableViewController id="MAU-lr-S2E" customClass="WillzIndexTableViewController" sceneMemberID="viewController">
@@ -128,17 +128,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bPI-qZ-fiV">
-                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <rect key="frame" x="10" y="0.0" width="42" height="24"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Ur-TO-clg">
-                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <rect key="frame" x="10" y="24" width="54" height="20"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
@@ -154,7 +153,7 @@
                             <outlet property="delegate" destination="MAU-lr-S2E" id="c6e-dT-RjG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="efz-ol-xM9"/>
+                    <navigationItem key="navigationItem" title="WillzIndex" id="efz-ol-xM9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j20-v8-5IW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

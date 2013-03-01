@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSArray* plotData;
 @property double maxValue;
 @property int graphType;
+@property double minValue;
 
 
 -(id)initWithPriceData:(NSArray*) priceData;

@@ -22,6 +22,7 @@
         self.plotData = volumeData;
         self.maxValue = [self findMaxValue:volumeData];
         self.graphType = BAR_GRAPH_TYPE;
+        self.minValue = [self findMinValue:volumeData];
     }
     
     return self;
@@ -43,5 +44,19 @@
     
     return tempMax;
 }
+
+-(double)findMinValue:(NSArray*) array_of_doubles
+{
+    double tempMin = [[array_of_doubles objectAtIndex:0] doubleValue];
+    
+    for (NSNumber* myNum in array_of_doubles)
+        if ([myNum doubleValue] < tempMin)
+        {
+            tempMin = [myNum doubleValue];
+        }
+    
+    return tempMin;
+}
+
 
 @end
